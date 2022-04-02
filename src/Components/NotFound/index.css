@@ -1,0 +1,21 @@
+.errBox {
+  display: flex;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  top: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.errMsg {
+  color: white;
+}
+
+.x_icon {
+  position: relative;
+  bottom: 20px;
+  fill: aliceblue !important;
+}

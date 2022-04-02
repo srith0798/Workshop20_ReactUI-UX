@@ -1,0 +1,123 @@
+.container_right {
+  margin-top: 20px;
+  flex-grow: 1;
+}
+
+.top_sec {
+  background-color: #eeeeee;
+  padding-bottom: 16px;
+}
+
+.rightSec_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  flex-wrap: wrap;
+}
+
+.date_status {
+  display: flex;
+}
+
+.table_flex {
+  display: flex;
+}
+
+.value {
+  color: black;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.pro_pic {
+  border-radius: 50%;
+  align-self: flex-start;
+  position: relative;
+  top: 15px;
+  width: 100px;
+  padding-left: 16px;
+}
+
+.table_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.surgery_status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab_items_md {
+  list-style-type: none;
+  display: none;
+  flex-wrap: wrap;
+}
+
+.tab_item {
+  background-color: #f5f5f5;
+  border-radius: 3px;
+}
+
+.active_text {
+  color: #0091ea;
+  font-weight: 500;
+}
+
+.active_tab {
+  margin-bottom: 10px !important;
+}
+
+.tab_items_xs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* flex-direction: column; */
+}
+.pat_history {
+  margin-left: 16px;
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .tab_items_md {
+    display: flex;
+    padding: 0;
+  }
+  .top_sec {
+    padding-bottom: 0;
+  }
+
+  .tab_items_xs {
+    display: none;
+  }
+  .backDrop {
+    display: none;
+  }
+
+  .pat_history {
+    display: block;
+  }
+}
+
+/* @media (min-width: 700px) and(max-width:950px) {
+  .chro_1 {
+    width: 50%;
+  }
+
+  .chro_2{
+
+  }
+
+  .chro_3{
+
+  }
+
+  .chro_4 {
+    order: 1;
+    width: 50%;
+    align-items: center;
+  }
+} */

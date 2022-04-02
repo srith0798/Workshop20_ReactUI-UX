@@ -1,0 +1,9 @@
+.landing_sec {
+  display: flex;
+}
+
+@media (max-width: 360px) {
+  .landing_sec {
+    width: 360px;
+  }
+}
