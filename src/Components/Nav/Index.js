@@ -6,7 +6,7 @@ import "./Index.css";
 const useStyle = makeStyles({
   activeIn: {
     backgroundColor: "#0091ea",
-    // width: "100%",
+    width: "100%",
     paddingTop: 22,
     paddingBottom: 22,
     paddingLeft: 30,
@@ -27,7 +27,8 @@ function Nav() {
   const status = anchorNavEl ? "active" : "";
   return (
     <div className="Navbar">
-      <div className={`${inStyles.flexIn} menu_item`}>
+      {/* Larger Screen */}
+      <div className="menu_item">
         <img
           className="pic"
           src="https://cdn.zeplin.io/5fe1c546802ac2404fc9aa60/assets/ab313db0-9615-4d30-9e8f-c98d3152b886-3x.png"
@@ -39,9 +40,10 @@ function Nav() {
         <h4>Users</h4>
         <h4>Billing</h4>
       </div>
+      {/* Responsive */}
       <img
         onClick={anchorNav}
-        className={`${"pic"} responsive_logo`}
+        className=" pic responsive_logo"
         src="https://cdn.zeplin.io/5fe1c546802ac2404fc9aa60/assets/ab313db0-9615-4d30-9e8f-c98d3152b886-3x.png"
         alt="logo"
       />
@@ -51,6 +53,7 @@ function Nav() {
         <h4 className="responsive_item">Users</h4>
         <h4 className="responsive_item">Billing</h4>
       </div>
+      {/* Notification Box */}
       <div className="bell">
         <img
           src="https://cdn.zeplin.io/5fe1c546802ac2404fc9aa60/assets/1bab25d9-eaa9-4f5c-a282-bcb50f400866.svg"

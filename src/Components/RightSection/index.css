@@ -3,6 +3,62 @@
   flex-grow: 1;
 }
 
+.tab_info {
+  display: flex;
+}
+
+.tab_box_1 {
+  width: 140px;
+  height: 126px;
+}
+
+.tab_box_1 td,
+.tab_box_3 td,
+.tab_box_5 td {
+  color: #9e9e9e;
+  font-size: 14px;
+}
+
+.tab_box_1 .patient_name {
+  color: black;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.tab_box_2 {
+  margin-top: 34px;
+  width: 112px;
+  height: 92px;
+}
+
+.tab_box_2 td,
+.tab_box_4 td,
+.tab_box_6 td {
+  font-size: 14px;
+  font-weight: 500;
+}
+.tab_box_3 {
+  height: 160px;
+  width: 110px;
+}
+
+.tab_box_3 td {
+  padding: 3px;
+}
+
+.tab_box_5,
+.tab_box_6 {
+  height: 100px;
+}
+
+.tab_box_5 {
+  margin-right: 16px;
+}
+
+.tab_box_5 td {
+  padding: 2px;
+}
+
 .top_sec {
   background-color: #eeeeee;
   padding-bottom: 16px;
@@ -34,8 +90,8 @@
   align-self: flex-start;
   position: relative;
   top: 15px;
-  width: 100px;
-  padding-left: 16px;
+  width: 80px;
+  margin-right: 16px;
 }
 
 .table_container {
@@ -54,6 +110,7 @@
   list-style-type: none;
   display: none;
   flex-wrap: wrap;
+  margin-left: 30px;
 }
 
 .tab_item {
@@ -62,12 +119,12 @@
 }
 
 .active_text {
-  color: #0091ea;
+  color: #0091ea !important;
   font-weight: 500;
 }
 
 .active_tab {
-  margin-bottom: 10px !important;
+  margin-top: 27px !important;
 }
 
 .tab_items_xs {
@@ -99,6 +156,10 @@
 
   .pat_history {
     display: block;
+  }
+
+  .active_tab {
+    margin-bottom: auto;
   }
 }
 

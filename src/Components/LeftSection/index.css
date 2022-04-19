@@ -10,6 +10,18 @@
   flex-shrink: 0;
 }
 
+.left_head {
+  margin-top: 40px !important;
+}
+
+.surg_date {
+  color: #9e9e9e !important;
+}
+
+.surg_01 {
+  color: #fff !important;
+}
+
 .search-in {
   margin-top: 16px;
   display: flex;
@@ -91,6 +103,11 @@
 
 .left_xs {
   display: block;
+}
+
+.user_box_01 {
+  background-color: #0091ea;
+  color: #fff;
 }
 
 @media (min-width: 600px) {

@@ -10,6 +10,7 @@ import {
   Typography,
   Paper,
 } from "@mui/material";
+
 import userData from "../../userData";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -31,63 +32,80 @@ const RightSection = () => {
   ];
 
   const [surgTab, changeSurgTab] = useState(false);
-  // const [colorTab, changeColor] = useState(false);
-  const [diagTab, changeDiagTab] = useState(false);
-  const [mediTab, changeMediTab] = useState(false);
-  const [evalTab, changeEvalTab] = useState(false);
-  const [recomTab, changeRecomTab] = useState(false);
+  const [commonTab, changeCommonTab] = useState(false);
 
   function displayDocs(x) {
-    switch (x) {
-      case tabList[0]:
-        return changeSurgTab(!surgTab);
-      case tabList[1]:
-        return changeDiagTab(!diagTab);
-      case tabList[2]:
-        return changeMediTab(!mediTab);
-      case tabList[3]:
-        return changeEvalTab(!evalTab);
-      case tabList[4]:
-        return changeRecomTab(!recomTab);
-      default:
-        return null;
-    }
+    const result =
+      x === tabList[0] ? changeSurgTab(!surgTab) : changeCommonTab(!commonTab);
+    return result;
   }
 
-  function changeColor(event) {
-    if (surgTab || diagTab || mediTab || evalTab || recomTab) {
-      event.target.style.color = "#0091ea";
-    }
-  }
   return (
     <div className="container_right">
       {/* Top Section */}
       <div className="top_sec">
         <Box>
           <div className="rightSec_title">
-            <Typography variant="body1" color="initial">
+            <Typography
+              fontSize={"16px"}
+              fontWeight={500}
+              variant="body1"
+              color="initial"
+            >
               Patient Information
             </Typography>
             <div className="date_status">
-              <Typography mr={2} color={"#9e9e9e"}>
+              <Typography mr={2} fontSize={"14px"} color={"#9e9e9e"}>
                 Last updated:
-                <Typography component={"span"} color={"#000"}>
+                <Typography component={"span"} fontSize={"14px"} color={"#000"}>
                   10:25 AM, today
                 </Typography>
               </Typography>
               <MoreHorizIcon sx={{ fill: "#9e9e9e" }} />
             </div>
           </div>
-
+          {/* Table */}
           <div className="table_container">
             {/* Table#1 */}
-            <div className=" table_flex chro_1">
+            <div className=" table_flex">
               <img
                 className="pro_pic"
                 src={userData[0].picture.large}
                 alt={userData[0].id}
               />
-              <TableContainer>
+              <div className="tab_info">
+                <table className="tab_box_1">
+                  <tbody>
+                    <tr>
+                      <td className="patient_name">{`${userData[0].name.title}. ${userData[0].name.first} ${userData[0].name.last}`}</td>
+                    </tr>
+                    <tr>
+                      <td>Phone:</td>
+                    </tr>
+                    <tr>
+                      <td>Gender:</td>
+                    </tr>
+                    <tr>
+                      <td>Age:</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table className="tab_box_2">
+                  <tbody>
+                    <tr>
+                      <td>{userData[0].cellNo}</td>
+                    </tr>
+                    <tr>
+                      <td>{userData[0].gender}</td>
+                    </tr>
+                    <tr>
+                      <td>{userData[0].age}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* <TableContainer>
                 <Table>
                   <TableBody>
                     <TableRow>
@@ -96,6 +114,7 @@ const RightSection = () => {
                           borderBottom: "none",
                           color: "#000",
                           fontWeight: "bold",
+                          padding: "6px",
                         }}
                       >{`${userData[0].name.title}. ${userData[0].name.first} ${userData[0].name.last}`}</TableCell>
                     </TableRow>
@@ -104,6 +123,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Phone:
@@ -115,6 +135,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Gender:
@@ -126,6 +147,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Age: <span className="value">{userData[0].age}</span>
@@ -133,10 +155,50 @@ const RightSection = () => {
                     </TableRow>
                   </TableBody>
                 </Table>
-              </TableContainer>
+              </TableContainer> */}
             </div>
             {/* Table#2 */}
-            <div className=" ">
+            <div className="tab_info">
+              <table className="tab_box_3">
+                <tbody>
+                  <tr>
+                    <td>Surgery Type:</td>
+                  </tr>
+                  <tr>
+                    <td>Surgery Date:</td>
+                  </tr>
+                  <tr>
+                    <td>Height(cm):</td>
+                  </tr>
+                  <tr>
+                    <td>Weight(lb):</td>
+                  </tr>
+                  <tr>
+                    <td>BMI:</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table className="tab_box_4">
+                <tbody>
+                  <tr>
+                    <td>{userData[0].surgeryType}</td>
+                  </tr>
+                  <tr>
+                    <td>{userData[0].surgeryDate}</td>
+                  </tr>
+                  <tr>
+                    <td>{userData[0].height}</td>
+                  </tr>
+                  <tr>
+                    <td>{userData[0].weight}</td>
+                  </tr>
+                  <tr>
+                    <td>{userData[0].bmi}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            {/* <div className=" ">
               <TableContainer>
                 <Table>
                   <TableBody>
@@ -145,6 +207,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Surgery Type:
@@ -156,6 +219,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Surgery Date:
@@ -167,6 +231,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Height(cm):
@@ -178,6 +243,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Weight(lb):
@@ -189,6 +255,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         BMI: <span className="value">{userData[0].bmi}</span>
@@ -197,9 +264,37 @@ const RightSection = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-            </div>
+            </div> */}
             {/* Table#3 */}
-            <div className=" ">
+            <div className="tab_info">
+              <table className="tab_box_5">
+                <tbody>
+                  <tr>
+                    <td>Anesthesiologist:</td>
+                  </tr>
+                  <tr>
+                    <td>Anesthesiologist Phone:</td>
+                  </tr>
+                  <tr>
+                    <td>Anesthesiologist Email:</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table className="tab_box_6">
+                <tbody>
+                  <tr>
+                    <td>{userData[0].doctorName}</td>
+                  </tr>
+                  <tr>
+                    <td>{userData[0].doctorMobile}</td>
+                  </tr>
+                  <tr>
+                    <td>{userData[0].doctorMail}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            {/* <div className=" ">
               <TableContainer>
                 <Table>
                   <TableBody>
@@ -208,6 +303,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Anesthesiologist:
@@ -219,6 +315,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Anesthesiologist Phone:
@@ -232,6 +329,7 @@ const RightSection = () => {
                         sx={{
                           borderBottom: "none",
                           color: "#9e9e9e",
+                          padding: "6px",
                         }}
                       >
                         Anesthesiologist Email:
@@ -241,23 +339,23 @@ const RightSection = () => {
                   </TableBody>
                 </Table>
               </TableContainer>
-            </div>
+            </div> */}
             {/* Surgery Status */}
             <div className="surgery_status">
               <Typography
                 sx={{
                   fontSize: "14px",
-                  fontWeight: "500",
                   color: "#9e9e9e",
-                  p: 2,
+                  p: "5px",
+                  marginBottom: 1,
                 }}
               >
                 Surgery Clearance
               </Typography>
               <Box
                 sx={{
-                  width: 100,
-                  height: 100,
+                  width: 71,
+                  height: 71,
                   borderRadius: "50%",
                   backgroundColor: "#00c853",
                   display: "flex",
@@ -266,7 +364,7 @@ const RightSection = () => {
                 }}
                 component={"div"}
               >
-                <p style={{ color: "white", fontSize: "20px" }}>Yes</p>
+                <p style={{ color: "white", fontSize: "18px" }}>Yes</p>
               </Box>
             </div>
           </div>
@@ -277,12 +375,15 @@ const RightSection = () => {
               elevation={3}
               sx={{
                 width: "150px",
-                marginTop: 2,
-                marginX: 2,
+                height: "64px",
+                marginTop: "30px",
+                marginLeft: "2px",
                 paddingX: 2.5,
                 paddingY: 1,
                 display: "flex",
                 alignItems: "center",
+                borderRadius: "2px",
+                boxShadow: 0,
               }}
               className={`${each !== tabList[0] ? "active_tab" : ""}`}
               key={each}
@@ -312,15 +413,10 @@ const RightSection = () => {
                 display: "flex",
                 alignItems: "center",
               }}
-              className={`${each !== tabList[0] ? "active_tab" : ""}`}
               key={each}
               onClick={() => displayDocs(each)}
             >
-              <Typography
-                textAlign={"center"}
-                variant="body2"
-                onClick={changeColor}
-              >
+              <Typography textAlign={"center"} variant="body2">
                 {each}
               </Typography>
             </Paper>
@@ -382,7 +478,7 @@ const RightSection = () => {
             duis
           </Typography>
         </div>
-        {/* Table */}
+        {/* Table Larger Screen */}
         <Typography color={"#424242"} mb={2}>
           Previous Surgeries
         </Typography>
@@ -422,10 +518,7 @@ const RightSection = () => {
       {/* Responsive Modal  */}
       <div className="backDrop">
         {surgTab && <SurgeryTab funcAlter={changeSurgTab} />}
-        {diagTab && <NotFound funcAlter={changeDiagTab} />}
-        {mediTab && <NotFound funcAlter={changeMediTab} />}
-        {evalTab && <NotFound funcAlter={changeEvalTab} />}
-        {recomTab && <NotFound funcAlter={changeRecomTab} />}
+        {commonTab && <NotFound funcAlter={changeCommonTab} />}
       </div>
     </div>
   );
